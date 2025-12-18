@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ARM College of Engineering and Technology | GPA Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ARM College of Engineering and Technology - SGPA, CGPA & Percentage Calculator Portal for UG and PG students.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="logo-icon">🎓</span>
+            <div class="logo-text-group">
+                <span class="logo-text">ARM COLLEGE</span>
+                <span class="logo-subtext">of Engineering & Technology</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn active" id="homeBtn" onclick="navigateToHome()">
+                <span class="nav-btn-icon">🏠</span>
+                <span class="nav-btn-text">Home</span>
+            </button>
+            <button class="nav-btn" id="calcBtn" onclick="navigateToCalculator()" style="display:none;">
+                <span class="nav-btn-icon">🧮</span>
+                <span class="nav-btn-text">Calculator</span>
+            </button>
+            <button id="themeToggle" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Selection Wizard -->
+    <main class="wizard-container" id="wizardContainer">
+        <!-- Step 1: Program Type Selection (UG/PG) -->
+        <section class="wizard-step active" id="step1">
+            <div class="wizard-header">
+                <div class="step-indicator">
+                    <div class="step-dot active">1</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">2</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">3</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">4</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">5</div>
+                </div>
+            </div>
+            <div class="wizard-content fade-in-up">
+                <div class="college-logo-large">
+                    <span class="logo-icon-large">🎓</span>
+                </div>
+                <h1 class="wizard-title gradient-text">ARM COLLEGE OF ENGINEERING AND TECHNOLOGY</h1>
+                <p class="wizard-subtitle">GPA Calculator Portal</p>
+                <h2 class="step-title">Select Your Program</h2>
+                <div class="selection-grid program-grid">
+                    <div class="selection-card" data-value="UG" onclick="selectProgram('UG')">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">🎓</div>
+                        <h3>UG</h3>
+                        <p>Under Graduate</p>
+                        <span class="card-badge">4 Years • 8 Semesters</span>
+                    </div>
+                    <div class="selection-card" data-value="PG" onclick="selectProgram('PG')">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">🎯</div>
+                        <h3>PG</h3>
+                        <p>Post Graduate</p>
+                        <span class="card-badge">2 Years • 4 Semesters</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Regulation Selection -->
+        <section class="wizard-step" id="step2">
+            <div class="wizard-header">
+                <div class="step-indicator">
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line active"></div>
+                    <div class="step-dot active">2</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">3</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">4</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">5</div>
+                </div>
+            </div>
+            <div class="wizard-content fade-in-up">
+                <h2 class="step-title">Select Regulation</h2>
+                <p class="step-description">Choose your academic regulation</p>
+                <button class="btn btn-outline btn-sm" onclick="goBack(1)" style="margin-bottom: 20px;">← Back to
+                    Program</button>
+                <div class="selection-grid regulation-grid">
+                    <div class="selection-card" data-value="2021" onclick="selectRegulation('2021')">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">📘</div>
+                        <h3>R-2021</h3>
+                        <p>Regulation 2021</p>
+                    </div>
+                    <div class="selection-card" data-value="2025" onclick="selectRegulation('2025')">
+                        <div class="card-glow"></div>
+                        <div class="card-icon">📗</div>
+                        <h3>R-2025</h3>
+                        <p>Regulation 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Department Selection -->
+        <section class="wizard-step" id="step3">
+            <div class="wizard-header">
+                <div class="step-indicator">
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line active"></div>
+                    <div class="step-dot active">3</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">4</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">5</div>
+                </div>
+            </div>
+            <div class="wizard-content fade-in-up">
+                <h2 class="step-title">Select Department</h2>
+                <p class="step-description" id="deptDescription">Choose your department</p>
+                <button class="btn btn-outline btn-sm" onclick="goBack(2)" style="margin-bottom: 20px;">← Back to
+                    Regulation</button>
+                <div class="selection-grid department-grid" id="departmentGrid">
+                    <!-- Departments will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Year Selection -->
+        <section class="wizard-step" id="step4">
+            <div class="wizard-header">
+                <div class="step-indicator">
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line active"></div>
+                    <div class="step-dot active">4</div>
+                    <div class="step-line"></div>
+                    <div class="step-dot">5</div>
+                </div>
+            </div>
+            <div class="wizard-content fade-in-up">
+                <h2 class="step-title">Select Year</h2>
+                <p class="step-description">Choose your current academic year</p>
+                <button class="btn btn-outline btn-sm" onclick="goBack(3)" style="margin-bottom: 20px;">← Back to
+                    Department</button>
+                <div class="selection-grid year-grid" id="yearGrid">
+                    <!-- Years will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 5: Semester Selection -->
+        <section class="wizard-step" id="step5">
+            <div class="wizard-header">
+                <div class="step-indicator">
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line completed"></div>
+                    <div class="step-dot completed">✓</div>
+                    <div class="step-line active"></div>
+                    <div class="step-dot active">5</div>
+                </div>
+            </div>
+            <div class="wizard-content fade-in-up">
+                <h2 class="step-title">Select Semester</h2>
+                <p class="step-description" id="semDescription">Choose your semester</p>
+                <button class="btn btn-outline btn-sm" onclick="goBack(4)" style="margin-bottom: 20px;">← Back to
+                    Year</button>
+                <div class="selection-grid semester-grid" id="semesterGrid">
+                    <!-- Semesters will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Calculator Section (Hidden Initially) -->
+    <main class="calculator-container" id="calculatorContainer" style="display: none;">
+        <!-- User Info Bar -->
+        <div class="user-info-bar">
+            <div class="user-info-content">
+                <span class="user-info-item"><strong>Program:</strong> <span id="displayProgram">-</span></span>
+                <span class="user-info-item"><strong>Regulation:</strong> <span id="displayRegulation">-</span></span>
+                <span class="user-info-item"><strong>Department:</strong> <span id="displayDept">-</span></span>
+                <span class="user-info-item"><strong>Year:</strong> <span id="displayYear">-</span></span>
+                <span class="user-info-item"><strong>Semester:</strong> <span id="displaySem">-</span></span>
+            </div>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <button class="nav-btn" onclick="backToSelection()" style="padding: 5px 15px; font-size: 11px;">← Back
+                    to Selection</button>
+                <button class="btn btn-secondary btn-sm" onclick="resetSelection()">Start Over</button>
+            </div>
+        </div>
+
+        <!-- Calculator Tabs -->
+        <div class="calculator-tabs">
+            <button class="tab-btn active" onclick="switchTab('sgpa')">📈 SGPA</button>
+            <button class="tab-btn" onclick="switchTab('cgpa')">📊 CGPA</button>
+            <button class="tab-btn" onclick="switchTab('percentage')">📐 Percentage</button>
+            <button class="tab-btn" onclick="switchTab('weighted')">⚖️ Weighted</button>
+            <button class="tab-btn" onclick="switchTab('history')">📜 History</button>
+        </div>
+
+        <div class="container">
+            <!-- SGPA Tab -->
+            <section class="tab-content active" id="sgpaTab">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">📈</div>
+                        <div>
+                            <h2 class="card-title">SGPA Calculator</h2>
+                            <p class="card-description">Calculate your Semester Grade Point Average</p>
+                        </div>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula-label">Formula:</span>
+                        <span class="formula">SGPA = Σ(Credit<sub>i</sub> × Grade Point<sub>i</sub>) / Σ(Total
+                            Credits)</span>
+                    </div>
+                    <div class="card-content">
+                        <div id="sgpaTableWrapper">
+                            <table id="sgpaTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Subject</th>
+                                        <th>Credits</th>
+                                        <th>Grade Point</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-row">
+                                        <td>1</td>
+                                        <td><input type="text" class="sub-name input-field" placeholder="Subject Name">
+                                        </td>
+                                        <td><input type="number" class="sub-credit input-field" placeholder="Credits"
+                                                min="0"></td>
+                                        <td><input type="number" class="sub-grade input-field" placeholder="0-10"
+                                                min="0" max="10" step="0.01"></td>
+                                        <td><button class="btn-icon btn-danger" onclick="removeSubject(this)">✕</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td>2</td>
+                                        <td><input type="text" class="sub-name input-field" placeholder="Subject Name">
+                                        </td>
+                                        <td><input type="number" class="sub-credit input-field" placeholder="Credits"
+                                                min="0"></td>
+                                        <td><input type="number" class="sub-grade input-field" placeholder="0-10"
+                                                min="0" max="10" step="0.01"></td>
+                                        <td><button class="btn-icon btn-danger" onclick="removeSubject(this)">✕</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-row">
+                                        <td>3</td>
+                                        <td><input type="text" class="sub-name input-field" placeholder="Subject Name">
+                                        </td>
+                                        <td><input type="number" class="sub-credit input-field" placeholder="Credits"
+                                                min="0"></td>
+                                        <td><input type="number" class="sub-grade input-field" placeholder="0-10"
+                                                min="0" max="10" step="0.01"></td>
+                                        <td><button class="btn-icon btn-danger" onclick="removeSubject(this)">✕</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-accent" id="loadSubjectsBtn" onclick="loadCurriculumSubjects()">
+                                <span class="btn-icon-left">📋</span> Load Subjects
+                            </button>
+                            <button class="btn btn-secondary" onclick="addSubject()">
+                                <span class="btn-icon-left">➕</span> Add Subject
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="calculateSGPA()">
+                                <span class="btn-icon-left">🧮</span> Calculate SGPA
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline" onclick="downloadSGPAPdf()">
+                                <span class="btn-icon-left">📥</span> Download PDF
+                            </button>
+                            <button class="btn btn-outline" onclick="saveCalculation('sgpa')">
+                                <span class="btn-icon-left">💾</span> Save SGPA
+                            </button>
+                        </div>
+                        <div class="result-box" id="sgpaResult"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CGPA Tab -->
+            <section class="tab-content" id="cgpaTab">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <div>
+                            <h2 class="card-title">CGPA Calculator</h2>
+                            <p class="card-description">Calculate your Cumulative Grade Point Average (Weighted)</p>
+                        </div>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula-label">Formula:</span>
+                        <span class="formula">CGPA = Σ(SGPA<sub>i</sub> × Credits<sub>i</sub>) / Σ(Total Credits)</span>
+                    </div>
+                    <div class="card-content">
+                        <div id="semesterList" class="cgpa-table-wrapper">
+                            <table id="cgpaTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Semester</th>
+                                        <th>SGPA</th>
+                                        <th>Credits</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cgpaTableBody">
+                                    <!-- Semesters will be populated based on selection -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="calculateCGPA()">
+                                <span class="btn-icon-left">🧮</span> Calculate CGPA
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline" onclick="downloadCGPAPdf()">
+                                <span class="btn-icon-left">📥</span> Download PDF
+                            </button>
+                            <button class="btn btn-outline" onclick="saveCalculation('cgpa')">
+                                <span class="btn-icon-left">💾</span> Save CGPA
+                            </button>
+                        </div>
+                        <div class="result-box" id="cgpaResult"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Percentage Tab -->
+            <section class="tab-content" id="percentageTab">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">📐</div>
+                        <div>
+                            <h2 class="card-title">CGPA → Percentage</h2>
+                            <p class="card-description">Convert your CGPA to percentage</p>
+                        </div>
+                    </div>
+                    <div class="formula-box">
+                        <span class="formula-label">Formula:</span>
+                        <span class="formula">Percentage = CGPA × 10</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="input-group">
+                            <label class="input-label">Enter CGPA</label>
+                            <input type="number" id="cgpaInput" class="input-field input-large" placeholder="e.g. 8.25"
+                                step="0.01" min="0" max="10">
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-primary btn-large" onclick="convertCGPA()">
+                                <span class="btn-icon-left">🔄</span> Convert
+                            </button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline" onclick="downloadPercentPdf()">
+                                <span class="btn-icon-left">📥</span> Download PDF
+                            </button>
+                            <button class="btn btn-outline" onclick="saveCalculation('cgpa-percentage')">
+                                <span class="btn-icon-left">💾</span> Save
+                            </button>
+                        </div>
+                        <div class="result-box" id="percentResult"></div>
+                    </div>
+                </div>
+
+                <!-- Grade to Percentage -->
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">🎯</div>
+                        <div>
+                            <h2 class="card-title">Grade → Percentage</h2>
+                            <p class="card-description">Grade point mapping</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="input-group">
+                            <label class="input-label">Select Grade Point</label>
+                            <select id="gradePointSelect" class="select-field">
+                                <option value="">Choose Grade Point</option>
+                                <option value="10">10 - O (Outstanding)</option>
+                                <option value="9">9 - A+ (Excellent)</option>
+                                <option value="8">8 - A (Very Good)</option>
+                                <option value="7">7 - B+ (Good)</option>
+                                <option value="6">6 - B (Average)</option>
+                                <option value="5">5 - C (Satisfactory)</option>
+                                <option value="4">4 - D (Pass)</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-large" onclick="convertGradeAnna()">
+                            <span class="btn-icon-left">🔄</span> Convert
+                        </button>
+                        <div class="result-box" id="gradePercentResult"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weighted Tab -->
+            <section class="tab-content" id="weightedTab">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">⚖️</div>
+                        <div>
+                            <h2 class="card-title">Weighted CGPA</h2>
+                            <p class="card-description">Calculate CGPA with credit weightage for all semesters</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="input-group">
+                            <label class="input-label">Number of Semesters</label>
+                            <select id="semesterCount" class="select-field" onchange="generateTable()">
+                                <option value="">Choose Number of Semesters</option>
+                                <option value="2">2 Semesters</option>
+                                <option value="4">4 Semesters</option>
+                                <option value="6">6 Semesters</option>
+                                <option value="8">8 Semesters</option>
+                            </select>
+                        </div>
+                        <div id="tableSection"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Tab -->
+            <section class="tab-content" id="historyTab">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <div class="card-icon">📜</div>
+                        <div>
+                            <h2 class="card-title">Saved Calculations</h2>
+                            <p class="card-description">View your calculation history</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="filter-group">
+                            <button class="btn btn-filter active" onclick="fetchCalculations({lastDays:7})">
+                                Last 7 Days
+                            </button>
+                            <button class="btn btn-filter" onclick="fetchCalculations({lastDays:30})">
+                                Last 30 Days
+                            </button>
+                            <div class="date-filter">
+                                <input type="date" id="weekStartInput" class="input-field" />
+                                <button class="btn btn-secondary"
+                                    onclick="fetchCalculations({weekStart:document.getElementById('weekStartInput').value})">
+                                    Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div id="historyResult" class="result-box history-box"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-brand">🎓 ARM College of Engineering and Technology</p>
+            <p>GPA Calculator Portal - Built with ❤️ for Students</p>
+            <p class="disclaimer">Disclaimer: Results are for reference only. Official marksheets are final.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/curriculum.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

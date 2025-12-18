@@ -1,0 +1,208 @@
+[
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8.29,
+      "totalCredits": 20.5
+    },
+    "timestamp": "2025-12-18T09:30:25.734Z"
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "result": "SGPA: 8.29"
+    },
+    "timestamp": "2025-12-18T09:30:31.093Z"
+  },
+  {
+    "type": "cgpa-percentage",
+    "payload": {
+      "cgpa": 8.28,
+      "percentage": 82.8,
+      "mode": "anna"
+    },
+    "timestamp": "2025-12-18T09:30:54.390Z"
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 7.67,
+      "totalCredits": 9,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 1
+    },
+    "timestamp": "2025-12-18T09:55:45.330Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8,
+      "totalCredits": 10,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 7
+    },
+    "timestamp": "2025-12-18T10:09:24.857Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "result": "SGPA: 8.00"
+    },
+    "timestamp": "2025-12-18T10:09:34.039Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "result": "SGPA: 8.00"
+    },
+    "timestamp": "2025-12-18T10:12:02.941Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8,
+      "totalCredits": 10,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 7
+    },
+    "timestamp": "2025-12-18T10:12:05.113Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8,
+      "totalCredits": 10,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 7
+    },
+    "timestamp": "2025-12-18T10:16:45.527Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "IT",
+      "year": 4,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8.43,
+      "totalCredits": 7,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 1
+    },
+    "timestamp": "2025-12-18T11:35:22.489Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8.43,
+      "totalCredits": 7,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 1
+    },
+    "timestamp": "2025-12-18T11:36:08.453Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1
+    }
+  },
+  {
+    "type": "sgpa",
+    "payload": {
+      "sgpa": 8.72,
+      "totalCredits": 18,
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1,
+      "totalSemesters": 8,
+      "absoluteSemester": 1
+    },
+    "timestamp": "2025-12-18T11:49:13.992Z",
+    "userInfo": {
+      "program": "UG",
+      "regulation": "2021",
+      "department": "CSE",
+      "year": 1,
+      "semester": 1
+    }
+  }
+]
